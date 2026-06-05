@@ -12,3 +12,5 @@ COPY run.sh /run.sh
 RUN chmod +x /run.sh catalogue
 EXPOSE 8080
 ENTRYPOINT ["bash", "/run.sh"]
+
+#
