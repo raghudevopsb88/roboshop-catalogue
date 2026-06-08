@@ -4,6 +4,7 @@ set -e
 if [ -f /data/params ]; then
     set -a
     # shellcheck disable=SC1091
+    #
     source /data/params
     set +a
 fi
