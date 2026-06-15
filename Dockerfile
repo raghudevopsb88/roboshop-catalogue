@@ -5,7 +5,9 @@ COPY . .
 RUN go mod tidy && CGO_ENABLED=0 GOOS=linux go build -o catalogue .
 
 FROM docker.io/redhat/ubi9:latest
-RUN dnf install -y ca-certificates && dnf clean all
+RUN dnf install -y ca-certificates \
+    && dnf update -y \
+    && dnf clean all
 WORKDIR /app
 COPY --from=builder /app/catalogue .
 COPY run.sh /run.sh
